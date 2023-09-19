@@ -7,9 +7,6 @@ def get_wells(depth, gradient):
     
     connection = os.getenv("WELL_DB","")      
     
-    # first used postgresql as argument
-    #'postgresql://tdi:qKmd8s5ze7WAYV@adventureworks.tditrain.com:5431/wells'
-
     engine = sqlalchemy.create_engine(connection)
 
     conn = engine.connect()
@@ -24,7 +21,7 @@ def get_wells(depth, gradient):
     return conn.execute(q, parameters).fetchall()
         
 if __name__ == '__main__':  # if run from command line
-    parser = argparse.ArgumentParser("A utility to fetc data from a database of wells",
+    parser = argparse.ArgumentParser("A utility to fetch data from a database of wells",
                                      epilog = "You will need the WELL_DB env var set to a sqlalchemy connect string")
     parser.add_argument("depth", type=float, help="Minimum depth of a well to output (in meters)")
     parser.add_argument("gradient", type=float, help="Minimum thermal gradient of a well to output (in deg C/m)")
