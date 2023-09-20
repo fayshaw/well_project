@@ -10,11 +10,10 @@ def get_wells(depth, gradient):
 
     query = """SELECT latitude, longitude, depth, gradient
     FROM wells
-    WHERE depth > :depth AND gradient > :grad;"""
+    WHERE depth > :depth AND gradient > :gradient;"""
 
-    q = sqlalchemy.text(query)
-    
-    parameters = {'depth': depth, 'grad': gradient}
+    q = sqlalchemy.text(query)    
+    parameters = {'depth': depth, 'gradient': gradient}
 
     return conn.execute(q, parameters).fetchall()
         
