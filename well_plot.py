@@ -8,12 +8,14 @@ def make_chart(well_df):
     # US states background
     background = alt.Chart(states).mark_geoshape(
         fill='lightgray',
-        stroke='white'
+        stroke='white',
+        tooltip=None
     ).properties(
         width=500,
         height=300
     ).project('albersUsa')
     
+    print(well_df)
         
     well_chart = alt.Chart(well_df).mark_circle() \
                     .encode(latitude='latitude:Q', longitude='longitude:Q', \
