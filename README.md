@@ -1,0 +1,1 @@
+# Well locationsThis is a demo project that queries a database of abandoned wells and makes a plot of their locations based on inputs from the user. It's arranged as a Streamlit app that is ready to be deployed.
